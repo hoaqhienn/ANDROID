@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Test data 1
+      const dolphinsAverageScore = (96 + 108 + 89) / 3;
+      const koalasAverageScore = (88 + 91 + 110) / 3;
+
+      if (dolphinsAverageScore > koalasAverageScore) {
+        console.log("Dolphins win!");
+      } else if (koalasAverageScore > dolphinsAverageScore) {
+        console.log("Koalas win!");
+      } else {
+        console.log("It's a draw!");
+      }
+
+      // Test data Bonus 1
+      const dolphinsBonusScore = (97 + 112 + 101) / 3;
+      const koalasBonusScore = (109 + 95 + 123) / 3;
+
+      if (dolphinsBonusScore >= 100 && dolphinsBonusScore > koalasBonusScore) {
+        console.log("Dolphins win!");
+      } else if (
+        koalasBonusScore >= 100 &&
+        koalasBonusScore > dolphinsBonusScore
+      ) {
+        console.log("Koalas win!");
+      } else if (
+        dolphinsBonusScore >= 100 &&
+        koalasBonusScore >= 100 &&
+        dolphinsBonusScore === koalasBonusScore
+      ) {
+        console.log("It's a draw!");
+      } else {
+        console.log("No one wins!");
+      }
+
+      // Test data Bonus 2
+      const dolphinsBonusScore2 = (97 + 112 + 101) / 3;
+      const koalasBonusScore2 = (109 + 95 + 106) / 3;
+
+      if (
+        dolphinsBonusScore2 >= 100 &&
+        dolphinsBonusScore2 > koalasBonusScore2
+      ) {
+        console.log("Dolphins win!");
+      } else if (
+        koalasBonusScore2 >= 100 &&
+        koalasBonusScore2 > dolphinsBonusScore2
+      ) {
+        console.log("Koalas win!");
+      } else if (
+        dolphinsBonusScore2 >= 100 &&
+        koalasBonusScore2 >= 100 &&
+        dolphinsBonusScore2 === koalasBonusScore2
+      ) {
+        console.log("It's a draw!");
+      } else {
+        console.log("No one wins!");
+      }
+    </script>
+  </body>
+</html>
