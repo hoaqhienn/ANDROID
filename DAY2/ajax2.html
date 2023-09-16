@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 2</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+  $.ajax({
+            url: "https://jsonplaceholder.typicode.com/todos/1",
+            beforeSend: function (xhr) {
+                xhr.overrideMimeType("text/plain; charset=x-user-defined");
+            }
+        })
+            .done(function (data) {
+                if (console && console.log) {
+                    console.log("Sample of data:", data.slice(0, 100));
+                }
+            });
+
+    </script>
+</body>
+</html>

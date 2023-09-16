@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <label for="guessField">Enter a guess: </label>
+    <input type="number" id="guessField" class="guessField" />
+    <input type="submit" value="Submit guess" class="guessSubmit" />
+
+    <script>
+      /*Implement a game rest functionality, so that the player can make a new guess!
+        Your tasks:
+        1. Select the element with the 'again' class and attach a click event handler
+        2. In the handler function, restore initial values of the 'score' and 'secretNumber' variables 
+        3. Restore the initial conditions of the message, number, score and guess input fields
+        4. Also restore the original background color (#222) and number width (15rem)
+        */
+
+      function checkGuess() {
+        const userGuess = Number(guessField.value);
+        if (guessCount === 1) {
+          guesses.textContent = "Previous guesses:";
+        }
+        guesses.textContent = `${guesses.textContent} ${userGuess}`;
+
+        if (userGuess === randomNumber) {
+          lastResult.textContent = "Congratulations! You got it right!";
+          lastResult.style.backgroundColor = "green";
+          lowOrHi.textContent = "";
+          setGameOver();
+        } else if (guessCount === 10) {
+          lastResult.textContent = "!!!GAME OVER!!!";
+          lowOrHi.textContent = "";
+          setGameOver();
+        } else {
+          lastResult.textContent = "Wrong!";
+          lastResult.style.backgroundColor = "red";
+          if (userGuess < randomNumber) {
+            lowOrHi.textContent = "Last guess was too low!";
+          } else if (userGuess > randomNumber) {
+            lowOrHi.textContent = "Last guess was too high!";
+          }
+        }
+
+        guessCount++;
+        guessField.value = "";
+        guessField.focus();
+      }
+      checkGuess();
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+      const guesses = document.querySelector(".guesses");
+      const lastResult = document.querySelector(".lastResult");
+      const lowOrHi = document.querySelector(".lowOrHi");
+
+      const guessSubmit = document.querySelector(".guessSubmit");
+      const guessField = document.querySelector(".guessField");
+
+      let guessCount = 1;
+      let resetButton;
+    </script>
+  </body>
+</html>
