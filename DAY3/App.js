@@ -6,71 +6,38 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  ImageBackground
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 
 
+import Page1 from "./src/pages/Page1.js";
+import Page2 from "./src/pages/Page2.js";
+import Page3 from "./src/pages/Page3.js";
+import Page4 from "./src/pages/Page4.js";
+import Page5 from "./src/pages/Page5.js";
+import Page6 from "./src/pages/Page6.js";
+import Page7 from "./src/pages/Page7.js";
+import Page8 from "./src/pages/Page8.js";
 
 export default function App() {
   return (
-<View style={styles.container}>
-      <Image
-        source={require("./assets/Ellipse_8.png")}
-        style={{ width: 140, height: 140 }}
-      />
-
-      <Text style={{ fontWeight: "bold", fontSize: 25, textAlign: "center" }}>
-        GROW <br /> YOUR BUSINESS
-      </Text>
-      <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
-        We will help you to grow your business using <br /> online server
-      </Text>
-
-      <View style={styles.button}>
-        <TouchableOpacity style={styles.buttonBorder}>
-          <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonBorder}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-      </View>
-
-      <StatusBar style="auto" />
-    </View>
+    // <Page1 />
+    // <Page2 />
+    // <Page3 />
+    // <Page4 />
+    // <Page5 />
+    // <Page6 />
+    // <Page7 />
+    <Page8 />
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
     marginVertical: 50,
     flex: 1,
-    backgroundColor: "linear-gradient(to bottom right, #E3C000, #fad0c4)",
     alignItems: "center",
     justifyContent: "space-around",
   },
 
-  button: {
-    marginTop: 10,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-
-  buttonBorder: {
-    backgroundColor: "#E3C000",
-    borderRadius: 10,
-    width: 120,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  buttonText: {
-    color: "black",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
 });
