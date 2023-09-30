@@ -1,42 +1,31 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 export default function Page1() {
   return (
     <View style={styles.container}>
-      <View style={styles.gradient}>
-        <Image
-          source={require("../../assets/Ellipse_8.png")}
-          style={{ width: 140, height: 140 }
-        }
-        />
+      <Image
+        source={require("../../assets/ellipse.png")}
+        style={{ width: 140, height: 140 }}
+      />
 
-        <Text style={{ fontWeight: "bold", fontSize: 25, textAlign: "center" }}>
-          GROW <br /> YOUR BUSINESS
-        </Text>
-        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
-          We will help you to grow your business using <br /> online server
-        </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 25, textAlign: "center" }}>
+        GROW <br /> YOUR BUSINESS
+      </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
+        We will help you to grow your business using <br /> online server
+      </Text>
 
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>Sign Up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-        </View>
-
-        <StatusBar style="auto" />
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       </View>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -44,17 +33,11 @@ export default function Page1() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-
-  gradient: {
-    flex: 1,
     width: "100%",
-    backgroundImage: "linear-gradient(to bottom , #00CCF9, #00CCF9)",
+    paddingVertical: 100,
     alignItems: "center",
     justifyContent: "space-around",
-    paddingVertical: 100,
+    backgroundImage: "linear-gradient(to bottom , #00CCF9, #00CCF9)",
   },
 
   button: {
