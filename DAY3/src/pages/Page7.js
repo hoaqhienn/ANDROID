@@ -2,73 +2,59 @@ import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
-import { useState } from "react";
 
 export default function Page6() {
-  const [mood, setMood] = useState("");
-
   return (
     <View style={styles.container}>
-      <View style={styles.gradient}>
-        <View style={styles.header}>
-          <Text style={{ fontWeight: "bold", fontSize: 30}}>
-            LOGIN
-          </Text>
-        </View>
-
-        <View style={styles.name}>
-        <View style={styles.square}>
-            <Image
-              source={require("../../assets/user.png")}
-              style={{ width: 32, height: 32 }}
-            />
-          </View>
-          <TextInput style={styles.input1} placeholder="Name" />
-  
-        </View>
-
-        <View style={styles.pwd}>
-        <View style={styles.square}>
-            <Image
-              source={require("../../assets/pwd.png")}
-              style={{ width: 32, height: 32 }}
-            />
-          </View>
-          <TextInput style={styles.input2} placeholder="Pasword" />
-          <View style={styles.square}>
-            <Image
-              source={require("../../assets/eye.png")}
-              style={{ width: 38, height: 36 }}
-            />
-          </View>
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder2}>
-            <Text style={styles.buttonText2}>CREATE ACCOUNT</Text>
-          </TouchableOpacity>
-        </View>
-
-        <StatusBar style="auto" />
+      <View style={styles.header}>
+        <Text style={{ fontWeight: "bold", fontSize: 30 }}>LOGIN</Text>
       </View>
+
+      <View style={styles.name}>
+        <View style={styles.square}>
+          <Image
+            source={require("../../assets/user.png")}
+            style={{ width: 32, height: 32 }}
+          />
+        </View>
+        <TextInput style={styles.input1} placeholder="Name" />
+      </View>
+
+      <View style={styles.pwd}>
+        <View style={styles.square}>
+          <Image
+            source={require("../../assets/pwd.png")}
+            style={{ width: 32, height: 32 }}
+          />
+        </View>
+        <TextInput style={styles.input2} placeholder="Pasword" />
+        <View style={styles.square}>
+          <Image
+            source={require("../../assets/eye.png")}
+            style={{ width: 38, height: 36 }}
+          />
+        </View>
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder2}>
+          <Text style={styles.buttonText2}>CREATE ACCOUNT</Text>
+        </TouchableOpacity>
+      </View>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-
-  gradient: {
     flex: 1,
     width: "100%",
     backgroundImage: "linear-gradient(to bottom , #FBCB00, #BF9A00)",
@@ -78,14 +64,13 @@ const styles = StyleSheet.create({
     paddingVertical: 100,
   },
 
-    header: {
-        flexDirection: "row",
-        justifyContent: "start",
-        alignItems: "start",
-        width: 330,
-        padding: 10,
-    },
-
+  header: {
+    flexDirection: "row",
+    justifyContent: "start",
+    alignItems: "start",
+    width: 330,
+    padding: 10,
+  },
 
   name: {
     flexDirection: "row",
@@ -116,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   input2: {
-    width: 330 - 54*2,
+    width: 330 - 54 * 2,
     height: 54,
     padding: 10,
     fontWeight: "bold",
@@ -143,7 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
-    button: {
+  button: {
     marginTop: 10,
     width: "100%",
     flexDirection: "row",
@@ -168,5 +153,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
   },
-
 });

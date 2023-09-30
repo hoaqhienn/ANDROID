@@ -1,64 +1,49 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
 
 export default function Page3() {
   return (
     <View style={styles.container}>
-      <View style={styles.gradient}>
+      <Image
+        source={require("../../assets/lock.png")}
+        style={{ width: 105, height: 117 }}
+      />
+
+      <Text style={{ fontWeight: "bold", fontSize: 25, textAlign: "center" }}>
+        FORGET
+        <br />
+        PASSWORD
+      </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
+        Provide your account's email for which you
+        <br />
+        want to reset your password
+      </Text>
+
+      <View style={styles.email}>
+        {/* <View style={styles.square}></View> */}
         <Image
-          source={require("../../assets/lock.png")}
-          style={{ width: 105, height: 117 }}
+          source={require("../../assets/email.png")}
+          style={{ width: 48, height: 45 }}
         />
 
-        <Text style={{ fontWeight: "bold", fontSize: 25, textAlign: "center" }}>
-          FORGET
-          <br />
-          PASSWORD
-        </Text>
-        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
-          Provide your account's email for which you
-          <br />
-          want to reset your password
-        </Text>
-
-        <View style={styles.email}>
-          {/* <View style={styles.square}></View> */}
-            <Image
-                source={require("../../assets/email.png")}
-                style={{ width: 48, height: 45 }}/>
-
-          <TextInput style={styles.input} placeholder="Email" />
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>NEXT</Text>
-          </TouchableOpacity>
-        </View>
-
-        <StatusBar style="auto" />
+        <TextInput style={styles.input} placeholder="Email" />
       </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>NEXT</Text>
+        </TouchableOpacity>
+      </View>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-
-  gradient: {
     flex: 1,
     width: "100%",
     backgroundImage: "linear-gradient(to bottom , White, #00CCF9)",

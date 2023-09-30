@@ -1,61 +1,45 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
 
 export default function Page4() {
   return (
     <View style={styles.container}>
-      <View style={styles.gradient}>
-        <Text style={{ fontWeight: "bold", fontSize: 60, textAlign: "center" }}>
-          CODE
-        </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 60, textAlign: "center" }}>
+        CODE
+      </Text>
 
-        <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center" }}>
-          VERIFICATION
-        </Text>
-        <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
-          Enter onetime password sent on
-          <br />
-          ++849092605789
-        </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center" }}>
+        VERIFICATION
+      </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 15, textAlign: "center" }}>
+        Enter onetime password sent on
+        <br />
+        ++849092605789
+      </Text>
 
-        <View style={styles.email}>
-          <TextInput style={styles.input} placeholder="" />
-          <TextInput style={styles.input} placeholder="" />
-          <TextInput style={styles.input} placeholder="" />
-          <TextInput style={styles.input} placeholder="" />
-          <TextInput style={styles.input} placeholder="" />
-          <TextInput style={styles.input} placeholder="" />
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>VERIFY CODE</Text>
-          </TouchableOpacity>
-        </View>
-
-        <StatusBar style="auto" />
+      <View style={styles.email}>
+        <TextInput style={styles.input} placeholder="" />
+        <TextInput style={styles.input} placeholder="" />
+        <TextInput style={styles.input} placeholder="" />
+        <TextInput style={styles.input} placeholder="" />
+        <TextInput style={styles.input} placeholder="" />
+        <TextInput style={styles.input} placeholder="" />
       </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>VERIFY CODE</Text>
+        </TouchableOpacity>
+      </View>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-
-  gradient: {
     flex: 1,
     width: "100%",
     backgroundImage: "linear-gradient(to bottom , White, #00CCF9)",
@@ -66,13 +50,11 @@ const styles = StyleSheet.create({
 
   email: {
     flexDirection: "row",
-    // backgroundColor: "#C4C4C4",
   },
 
   input: {
     width: 50,
     height: 50,
-    // backgroundColor: "#C4C4C4",
     borderWidth: 1,
   },
 

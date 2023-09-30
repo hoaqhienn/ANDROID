@@ -2,76 +2,63 @@ import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
-import { useState } from "react";
 
 export default function Page6() {
-  const [mood, setMood] = useState("");
-
   return (
     <View style={styles.container}>
-      <View style={styles.gradient}>
-        <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center" }}>
-          REGISTER
-        </Text>
+      <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center" }}>
+        REGISTER
+      </Text>
 
-        <TextInput style={styles.input} placeholder="Name" />
-        <TextInput style={styles.input} placeholder="Phone" />
+      <TextInput style={styles.input} placeholder="Name" />
+      <TextInput style={styles.input} placeholder="Phone" />
 
-        <TextInput style={styles.input} placeholder="Email" />
+      <TextInput style={styles.input} placeholder="Email" />
 
-        <View style={styles.pwd}>
-          <TextInput style={styles.input2} placeholder="Pasword" />
-          <View style={styles.square}>
-            <Image
-              source={require("../../assets/eye.png")}
-              style={{ width: 38, height: 36 }}
-            />
-          </View>
+      <View style={styles.pwd}>
+        <TextInput style={styles.input2} placeholder="Pasword" />
+        <View style={styles.square}>
+          <Image
+            source={require("../../assets/eye.png")}
+            style={{ width: 38, height: 36 }}
+          />
         </View>
-
-        <TextInput style={styles.input} placeholder="Birthday" />
-
-        <View style={styles.gender}>
-          <View style={styles.g1}>
-            <TouchableOpacity style={styles.outter}>
-              {/* <View style={styles.inner}></View> */}
-            </TouchableOpacity>
-            <Text>Male</Text>
-          </View>
-          <View style={styles.g1}>
-            <TouchableOpacity style={styles.outter}>
-              {/* <View style={styles.inner}></View> */}
-            </TouchableOpacity>
-            <Text>Female</Text>
-          </View>
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>REGISTER</Text>
-          </TouchableOpacity>
-        </View>
-
-        <Text
-          style={{ fontWeight: "normal", fontSize: 14, textAlign: "center" }}
-        >
-          When you agree to terms and conditions
-        </Text>
-
-        <StatusBar style="auto" />
       </View>
+
+      <TextInput style={styles.input} placeholder="Birthday" />
+
+      <View style={styles.gender}>
+        <View style={styles.g1}>
+          <TouchableOpacity style={styles.outter}>
+            <View style={styles.inner}></View>
+          </TouchableOpacity>
+          <Text>Male</Text>
+        </View>
+        <View style={styles.g1}>
+          <TouchableOpacity style={styles.outter}>
+            {/* <View style={styles.inner}></View> */}
+          </TouchableOpacity>
+          <Text>Female</Text>
+        </View>
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>REGISTER</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Text style={{ fontWeight: "normal", fontSize: 14, textAlign: "center" }}>
+        When you agree to terms and conditions
+      </Text>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-
-  gradient: {
     flex: 1,
     width: "100%",
     backgroundColor: "#efe",

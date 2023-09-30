@@ -2,101 +2,86 @@ import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-web";
-import { useState } from "react";
-import { Divider } from "react-native-paper";
 
 export default function Page6() {
-  const [mood, setMood] = useState("");
-
   return (
     <View style={styles.container}>
-      <View style={styles.gradient}>
-        <Image
-          source={require("../../assets/eyeball-309797 1.svg")}
-          style={{ width: "140px", height: "140px" }}
-        />
+      <Image
+        source={require("../../assets/eyeball-309797 1.svg")}
+        style={{ width: "140px", height: "140px" }}
+      />
 
-        <View style={styles.name}>
-          <View style={styles.square}>
-            <Image
-              source={require("../../assets/user1.png")}
-              style={{ width: 30, height: 30 }}
-            />
-          </View>
-          <TextInput
-            style={styles.input}
-            placeholder="Please input user name"
+      <View style={styles.name}>
+        <View style={styles.square}>
+          <Image
+            source={require("../../assets/user1.png")}
+            style={{ width: 30, height: 30 }}
           />
         </View>
-
-        <View style={styles.name}>
-          <View style={styles.square}>
-            <Image
-              source={require("../../assets/pwd1.png")}
-              style={{ width: 30, height: 30 }}
-            />
-          </View>
-          <TextInput style={styles.input} placeholder="Please input password" />
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonBorder}>
-            <Text style={styles.buttonText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity>
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>Register</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style>
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-              Forgot Password
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.other}>
-          <View style={styles.lines} />
-          <Text style={{ fontSize: 18 }}>Other Login Methods</Text>
-          <View style={styles.lines} />
-        </View>
-
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.more}>
-          <Image
-              source={require("../../assets/other1.svg")}
-              style={{ width: 74, height: 74 }}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.more}>
-          <Image
-              source={require("../../assets/other2.svg")}
-              style={{ width: 74, height: 74 }}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.more, {backgroundColor: "#45a"}]}>
-          <Image
-              source={require("../../assets/other3.png")}
-              style={{ width: 32, height: 45 }}
-            />
-          </TouchableOpacity>
-        </View>
-
-        <StatusBar style="auto" />
+        <TextInput style={styles.input} placeholder="Please input user name" />
       </View>
+
+      <View style={styles.name}>
+        <View style={styles.square}>
+          <Image
+            source={require("../../assets/pwd1.png")}
+            style={{ width: 30, height: 30 }}
+          />
+        </View>
+        <TextInput style={styles.input} placeholder="Please input password" />
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity>
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>Register</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style>
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+            Forgot Password
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.other}>
+        <View style={styles.lines} />
+        <Text style={{ fontSize: 18 }}>Other Login Methods</Text>
+        <View style={styles.lines} />
+      </View>
+
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.more}>
+          <Image
+            source={require("../../assets/other1.svg")}
+            style={{ width: 74, height: 74 }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.more}>
+          <Image
+            source={require("../../assets/other2.svg")}
+            style={{ width: 74, height: 74 }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.more, { backgroundColor: "#45a" }]}>
+          <Image
+            source={require("../../assets/other3.png")}
+            style={{ width: 32, height: 45 }}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-
-  gradient: {
     flex: 1,
     width: "100%",
     alignItems: "center",
@@ -169,11 +154,11 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
 
-    more: {
-        width: 74,
-        height: 74,
-        borderRadius: 10,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+  more: {
+    width: 74,
+    height: 74,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
