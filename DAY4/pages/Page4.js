@@ -4,13 +4,17 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput,
   Image,
+  TextInput,
 } from "react-native";
-
+import React, { useState } from "react";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
-import { BiSolidCoupon } from "react-icons/bi";
-export default function Page1() {
+
+export default function Page4() {
+  const cost = 141800;
+  const [count, setCount] = useState(1);
+  const [textValue, setTextValue] = useState(cost);
+
   return (
     <View style={styles.container}>
       <View style={styles.child1}>
@@ -49,11 +53,23 @@ export default function Page1() {
                   justifyContent: "space-between",
                 }}
               >
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    if (count > 0) {
+                      setCount((prevCount) => prevCount - 1);
+                      setTextValue(cost * (count - 1));
+                    }
+                  }}
+                >
                   <AiFillMinusSquare />
                 </TouchableOpacity>
-                <Text style={{fontWeight: 700}}>1</Text>
-                <TouchableOpacity>
+                <Text style={{ fontWeight: 700 }}>{count}</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    setCount((prevCount) => prevCount + 1);
+                    setTextValue(cost * (count + 1));
+                  }}
+                >
                   <AiFillPlusSquare />
                 </TouchableOpacity>
               </View>
@@ -104,23 +120,16 @@ export default function Page1() {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              width: 208,
-              height: 45,
-              borderWidth: 1,
-              borderColor: "#808080",
-              borderRadius: 2,
             }}
           >
-            <View style={{ paddingLeft: 10 }}>
-              <BiSolidCoupon size={30} color="#F2DD1B" />
-            </View>
-
             <TextInput
               style={{
                 height: 40,
                 width: 200,
                 borderRadius: 5,
                 paddingLeft: 10,
+                borderColor: "gray",
+                borderWidth: 1,
               }}
               placeholder="Mã giảm giá"
             />
@@ -170,7 +179,7 @@ export default function Page1() {
         </View>
         <View>
           <Text style={{ fontWeight: "bold", fontSize: 18, color: "#EE0D0D" }}>
-            141.800đ
+            {textValue.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ
           </Text>
         </View>
       </View>
@@ -196,7 +205,7 @@ export default function Page1() {
             <Text
               style={{ fontWeight: "bold", fontSize: 18, color: "#EE0D0D" }}
             >
-              141.800đ
+              {textValue.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ
             </Text>
           </View>
         </View>
