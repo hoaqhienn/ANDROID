@@ -9,7 +9,7 @@ import {
 
 import { Checkbox } from "antd";
 
-export default function Page1() {
+export default function Page3() {
   return (
     <View style={styles.container}>
       <View style={styles.container2}>

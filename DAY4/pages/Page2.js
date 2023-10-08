@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { BiSolidStar, BiSolidCamera } from "react-icons/bi";
 
-export default function Page1() {
+export default function Page2() {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row" }}>
