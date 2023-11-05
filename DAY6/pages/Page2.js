@@ -12,11 +12,9 @@ import {
 
 export default function App({ navigation }) {
   const [type, setType] = useState("");
-
   const onItemPress = (item) => {
     navigation.navigate("P3", { item });
   }
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -60,6 +58,7 @@ export default function App({ navigation }) {
             <Text style={{color: type === "Mountain" ? "red" : "grey"}}>Mountain</Text>
           </Pressable>
         </View>
+        
         <View style={{ alignItems: "center", justifyContent: "center", marginBottom: 30}}>
           <FlatList
             numColumns={2}
@@ -68,9 +67,6 @@ export default function App({ navigation }) {
               return (
                 <View style={{ padding: 5 }}>
                   <Pressable
-                    onLongPress={() => {
-                      console.log("long press");
-                    }}
                     onPress={() => onItemPress(item)}
                   >
                     <View
