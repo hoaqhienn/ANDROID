@@ -1,121 +1,111 @@
-import React, { useState } from "react";
-import { Text, View, Image, Pressable, TextInput } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { View, Button, TextInput, Pressable, Image, Text } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 
-export default function App({ route, navigation }) {
-  const { email } = route.params;
-  const { data } = route.params;
+export default function Page3({ route, navigation }) {
+  const { userId, onTodoAdded } = route.params;
   const [text, setText] = useState("");
-  const [todos, setTodos] = useState(todos || []);
+  const [user, setUser] = useState({});
+  const textInputRef = useRef(null);
 
-  const addTodo = (text) => {
-    // Create a new todo object
+  const fetchUser = async () => {
+    try {
+      const response = await fetch(
+        `https://6544aedf5a0b4b04436cbb5a.mockapi.io/api/user/${userId}`
+      );
+      const userData = await response.json();
+      setUser(userData);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (textInputRef.current) {
+        textInputRef.current.focus();
+      }
+    }, [])
+  );
+
+  const addTodo = async () => {
     const newTodo = {
-      id: todos.length + 1,
-      text,
-      completed: false,
+      title: text,
     };
-
-    // Update the todos array with the new todo
-    setTodos([...todos, newTodo]);
+    try {
+      const response = await fetch(
+        `https://6544aedf5a0b4b04436cbb5a.mockapi.io/api/user/${userId}/todo`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTodo),
+        }
+      );
+      const addedTodo = await response.json();
+      setText("");
+      if (typeof onTodoAdded === "function") {
+        onTodoAdded(); // Execute the callback function
+      }
+      navigation.goBack();
+    } catch (error) {
+      console.error("Error adding todo:", error);
+    }
   };
 
   return (
-    <View style={{ alignItems: "center" }}>
-      <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: 10,
-        }}
-      >
-        <Pressable
-          onPress={() => {
-            navigation.goBack();
+    <View>
+      <View>
+        <View
+          style={{
+            width: "100%",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: 10,
           }}
-          style={{ width: 30, height: 30, backgroundColor: "red" }}
-        />
-
-        <View style={{ flexDirection: "row" }}>
-          <Image
-            style={{ width: 50, height: 50, borderRadius: 25 }}
-            resizeMode="center"
-            source={{ uri: data.image }}
+        >
+          <Pressable
+            onPress={() => {
+              navigation.goBack();
+            }}
+            style={{ width: 30, height: 30, backgroundColor: "red" }}
           />
-          <View style={{ paddingLeft: 10, alignItems: "center" }}>
-            <Text style={{ fontSize: 20, fontWeight: 700 }}>
-              Xin chào, {data.email}
+
+          <View style={{ flexDirection: "row" }}>
+            <Image
+              style={{ width: 50, height: 50, borderRadius: 25 }}
+              resizeMode="center"
+              source={{ uri: user.img }}
+            />
+          </View>
+
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ fontSize: 20, fontWeight: "700" }}>
+              Xin chào, {user.fname}
             </Text>
-            <Text style={{ fontSize: 16, fontWeight: 700, color: "grey" }}>
-              Have a nice day
-            </Text>
+            <Text>Have a nice day!</Text>
           </View>
         </View>
       </View>
       <View>
-        <Text style={{ fontWeight: 700, fontSize: 30 }}>ADD YOUR JOB</Text>
-      </View>
-      <View style={{ marginVertical: 30 }}>
         <TextInput
-          style={{
-            width: 340,
-            height: 40,
-            borderWidth: 1,
-            borderColor: "grey",
-            borderRadius: 5,
-            paddingLeft: 60,
-          }}
+          ref={textInputRef}
+          style={{ width: 300, height: 50 }}
           value={text}
           onChangeText={setText}
-          placeholder="input your job"
+          placeholder="Enter todo"
         />
-
-        <Pressable
-          style={{
-            position: "absolute",
-            left: 5,
-            top: 5,
-            height: 30,
-            borderRadius: 5,
-            backgroundColor: "#00BDD6",
-            padding: 5,
-          }}
+        <Button
+          title="Add"
           onPress={() => {
-            alert("Press");
+            addTodo();
           }}
-        >
-          <Text style={{ color: "Green" }}>Icon</Text>
-        </Pressable>
-      </View>
-      <View style={{ marginVertical: 30 }}>
-        <Pressable
-          style={{
-            width: 150,
-            height: 40,
-            borderRadius: 10,
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#00BDD6",
-          }}
-          onPress={() => {
-            addTodo(text);
-
-            // Truyền todos mới vào params
-            navigation.navigate("P2", {
-              email,
-              data,
-              todos,
-            });
-          }}
-        >
-          <Text style={{ fontSize: 24, color: "white" }}>FINISH</Text>
-        </Pressable>
-      </View>
-      <View style={{ marginVertical: 50 }}>
-        <Image
-          source={require("../assets/img1.png")}
-          style={{ width: 200, height: 200 }}
         />
       </View>
     </View>
